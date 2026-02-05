@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ff4e8a, #ff9a9e);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      max-width: 400px;
+    }
+    h1 {
+      color: #ff4e8a;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #444;
+      font-size: 18px;
+    }
+    button {
+      margin: 15px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .yes {
+      background: #ff4e8a;
+      color: white;
+    }
+    .yes:hover {
+      background: #e63c74;
+    }
+    .no {
+      background: #eee;
+    }
+    .no:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Hey 💌</h1>
+    <p>I built a small website for one important question…</p>
+    <h2>Will you be my Valentine? 🌹</h2>
+
+    <button class="yes" onclick="yesClick()">Yes 💖</button>
+    <button class="no" onclick="noClick()">No 🙈</button>
+  </div>
+
+  <script>
+    function yesClick() {
+      document.body.innerHTML = "<h1 style='color:white;'>YAYYY 💕<br>Best decision ever 😍</h1>";
+    }
+    function noClick() {
+      alert("Error 404: Option not supported 😜");
+    }
+  </script>
+
+</body>
+</html>
