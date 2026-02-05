@@ -12,31 +12,40 @@
       justify-content: center;
       background: linear-gradient(135deg, #ff4e8a, #ff9a9e);
       font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
     }
     .card {
       background: white;
       padding: 40px;
-      border-radius: 20px;
+      border-radius: 25px;
       text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      max-width: 400px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      max-width: 420px;
+      animation: pop 1s ease;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
     h1 {
       color: #ff4e8a;
-      margin-bottom: 10px;
+    }
+    h2 {
+      color: #333;
     }
     p {
-      color: #444;
       font-size: 18px;
+      color: #555;
     }
     button {
-      margin: 15px;
-      padding: 12px 25px;
+      padding: 14px 30px;
       font-size: 16px;
       border: none;
       border-radius: 30px;
       cursor: pointer;
+      margin: 12px;
       transition: 0.3s;
+      position: relative;
     }
     .yes {
       background: #ff4e8a;
@@ -48,30 +57,43 @@
     .no {
       background: #eee;
     }
-    .no:hover {
-      background: #ddd;
-    }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>Hey 💌</h1>
-    <p>I built a small website for one important question…</p>
-    <h2>Will you be my Valentine? 🌹</h2>
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
 
-    <button class="yes" onclick="yesClick()">Yes 💖</button>
-    <button class="no" onclick="noClick()">No 🙈</button>
-  </div>
+<div class="card" id="card">
+  <h1>Hey ❤️</h1>
+  <p>I made something special just for you…</p>
+  <h2>Will you be my Valentine? 🌹</h2>
 
-  <script>
-    function yesClick() {
-      document.body.innerHTML = "<h1 style='color:white;'>YAYYY 💕<br>Best decision ever 😍</h1>";
-    }
-    function noClick() {
-      alert("Error 404: Option not supported 😜");
-    }
-  </script>
+  <button class="yes" onclick="yesClick()">Yes 💖</button>
+  <button class="no" id="noBtn" onmouseover="moveNo()">No 🙈</button>
+</div>
+
+<script>
+  function yesClick() {
+    document.body.innerHTML = `
+      <div style="color:white;text-align:center;">
+        <h1>YAYYY 😍💖</h1>
+        <h2>Best decision ever!</h2>
+        <p>Happy Valentine’s Day 💌</p>
+      </div>
+    `;
+  }
+
+  function moveNo() {
+    const btn = document.getElementById("noBtn");
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+    btn.style.position = "absolute";
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+  }
+</script>
 
 </body>
 </html>
